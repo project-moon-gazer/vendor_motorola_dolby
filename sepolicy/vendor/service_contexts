@@ -1,0 +1,2 @@
+vendor.dolby.dms.IDms/default           u:object_r:vendor_hal_dms_service:s0
+vendor.dolby.hardware.dms.IDms/default  u:object_r:vendor_hal_dms_service:s0

@@ -1,0 +1,39 @@
+type hal_dms_hwservice, hwservice_manager_type, protected_hwservice;
+
+type vendor_hal_dms_service, hal_service_type, service_manager_type;
+
+type hal_dms_default, domain;
+hal_server_domain(hal_dms_default, hal_dms)
+
+type hal_dms_default_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_dms_default)
+
+hal_attribute_hwservice(hal_dms, hal_dms_hwservice)
+
+binder_call(hal_dms_client, hal_dms_server)
+binder_call(hal_dms_server, hal_dms_client)
+
+add_hwservice(hal_dms_server, hal_dms_hwservice)
+allow hal_dms_client hal_dms_hwservice:hwservice_manager find;
+allow hal_dms_client vendor_hal_dms_service:service_manager find;
+
+hal_client_domain(hal_audio_default, hal_dms)
+hal_client_domain(mediacodec, hal_dms)
+hal_client_domain(audioserver, hal_dms)
+hal_client_domain(platform_app, hal_dms)
+hal_client_domain(platform_app_36, hal_dms)
+
+allow hal_dms_default vendor_dolby_file:dir create_dir_perms;
+allow hal_dms_default vendor_dolby_file:file create_file_perms;
+
+binder_call(hal_dms_default, hal_audio_default)
+binder_call(hal_dms_default, platform_app)
+binder_call(hal_dms_default, platform_app_36)
+binder_call(hal_dms_default, mediacodec)
+
+get_prop(hal_dms_default, vendor_mot_dolby_prop)
+get_prop(hal_audio_default, vendor_mot_dolby_prop)
+get_prop(platform_app, vendor_mot_dolby_prop)
+get_prop(platform_app_36, vendor_mot_dolby_prop)
+set_prop(vendor_init, vendor_mot_dolby_prop)
+get_prop(vendor_init, vendor_mot_dolby_prop)

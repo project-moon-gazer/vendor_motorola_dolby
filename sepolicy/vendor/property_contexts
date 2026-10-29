@@ -1,0 +1,2 @@
+ro.vendor.dolby.                        u:object_r:vendor_mot_dolby_prop:s0
+persist.vendor.audio.dolby.             u:object_r:vendor_mot_dolby_prop:s0
