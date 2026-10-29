@@ -17,7 +17,10 @@ PRODUCT_COPY_FILES += \
     $(DOLBY_PATH)/proprietary/etc/default-permissions/default-permissions-com.motorola.dolby.dolbyui.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions-com.motorola.dolby.dolbyui.xml \
     $(DOLBY_PATH)/proprietary/system_ext/etc/permissions/com.dolby.daxservice.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.dolby.daxservice.xml \
     $(DOLBY_PATH)/proprietary/system_ext/etc/permissions/com.motorola.frameworks.core.addon.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.motorola.frameworks.core.addon.xml \
-    $(DOLBY_PATH)/proprietary/system_ext/etc/permissions/motoaudioeffectsdk.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/motoaudioeffectsdk.xml
+    $(DOLBY_PATH)/proprietary/system_ext/etc/permissions/motoaudioeffectsdk.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/motoaudioeffectsdk.xml \
+    $(DOLBY_PATH)/proprietary/system_ext/etc/permissions/moto-checkin.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/moto-checkin.xml \
+    $(DOLBY_PATH)/proprietary/system_ext/etc/permissions/moto-settings.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/moto-settings.xml \
+    $(DOLBY_PATH)/proprietary/system_ext/etc/permissions/moto-core_services.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/moto-core_services.xml
 
 # DAX configs & Codec2
 PRODUCT_COPY_FILES += \
@@ -35,6 +38,10 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_PACKAGES += \
     MotoDolbyDax3 \
     daxService \
+    MotorolaSettingsProvider \
+    moto-settings \
+    moto-checkin \
+    moto-core_services \
     com.motorola.frameworks.core.addon \
     motoaudioeffectsdk \
     vendor.dolby.hardware.dms@2.1-service \
